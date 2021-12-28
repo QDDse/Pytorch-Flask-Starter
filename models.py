@@ -35,7 +35,7 @@ class MobileNet:
         with torch.no_grad():
             output = self.model(input_batch)
 
-        # The output has unnormalized scores. To get probabilities, you can run a softmax on it.
+        # The output has unnormalized scores. to get probabilities, you can run a softmax on it.
         output = torch.nn.functional.softmax(output[0], dim=0)
         confidence, index = torch.max(output, 0)
 
